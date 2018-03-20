@@ -70,27 +70,13 @@ int		find_place(int i, int j, t_import *h)
 	return (h->m == 1) ? 1 : 0;
 }
 
-int		square_root(int nbr)
-{
-	int del;
-
-	del = 2;
-	while (del * del <= nbr)
-	{
-		if (del * del == nbr)
-			return (del);
-		del++;
-	}
-	return (del - 1);
-}
-
 void	fill_it(t_import *h)
 {
 	int i;
 	int j;
 
 	i = 0;
-	h->d = square_root((h->map_h * h->map_h) + (h->map_w * h->map_w));
+	h->d = h->d = h->map_h + h->map_w;
 	while (i < h->map_h - ((h->piece_h - h->piece_s_u)
 		- (h->piece_h - h->piece_s_d)))
 	{
