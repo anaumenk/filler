@@ -43,17 +43,20 @@ void	check_piece(t_import *h, int x)
 
 void	piece(char **line, t_import *h)
 {
-	int i;
+	int		i;
+	char	*tmp;
 
-	*line = ft_strchr(*line, ' ') + 1;
-	h->piece_h = ft_atoi(*line);
-	h->piece_w = ft_atoi(ft_strchr(*line, ' ') + 1);
+	tmp = ft_strchr(*line, ' ') + 1;
+	h->piece_h = ft_atoi(tmp);
+	h->piece_w = ft_atoi(ft_strchr(tmp, ' ') + 1);
 	h->piece = (char**)malloc(sizeof(char*) * (h->piece_h));
 	i = 0;
+	free(*line);
 	while (i < h->piece_h)
 	{
 		get_next_line(0, line);
 		h->piece[i++] = ft_strdup(*line);
+		free(*line);
 	}
 	h->m = 0;
 	i = 0;
@@ -65,18 +68,22 @@ void	piece(char **line, t_import *h)
 
 void	map(char **line, t_import *h)
 {
-	int i;
+	int		i;
+	char	*tmp;
 
-	*line = ft_strchr(*line, ' ') + 1;
-	h->map_h = ft_atoi(*line);
-	h->map_w = ft_atoi(ft_strchr(*line, ' ') + 1);
+	tmp = ft_strchr(*line, ' ') + 1;
+	h->map_h = ft_atoi(tmp);
+	h->map_w = ft_atoi(ft_strchr(tmp, ' ') + 1);
 	h->map = (char**)malloc(sizeof(char*) * (h->map_h));
+	free(*line);
 	get_next_line(0, line);
+	free(*line);
 	i = 0;
 	while (i < h->map_h)
 	{
 		get_next_line(0, line);
 		h->map[i++] = ft_strdup(*line + 4);
+		free(*line);
 	}
 	get_next_line(0, line);
 }
@@ -90,6 +97,7 @@ int		main(void)
 	get_next_line(0, &line);
 	h->p = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'O' : 'X';
 	h->lp = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'o' : 'x';
+	free(line);
 	while (get_next_line(0, &line))
 	{
 		if (ft_strstr(line, "Plateau"))

@@ -12,6 +12,20 @@
 
 #include "filler.h"
 
+void del(t_import *h)
+{
+	int i;
+
+	i = 0;
+	while (i < h->map_h)
+		free(h->map[i++]);
+	free(h->map);
+	i = 0;
+	while (i < h->piece_h)
+		free(h->piece[i++]);
+	free(h->piece);
+}
+
 int		distance(int i, int j, t_import *h)
 {
 	int d;
@@ -95,4 +109,5 @@ void	fill_it(t_import *h)
 		i++;
 	}
 	ft_printf("%d %d\n", h->x, h->y);
+	del(h);
 }
