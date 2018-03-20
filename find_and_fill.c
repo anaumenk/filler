@@ -6,7 +6,7 @@
 /*   By: anaumenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:48:57 by anaumenk          #+#    #+#             */
-/*   Updated: 2018/03/15 18:48:58 by anaumenk         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:00:35 by anaumenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	fill_it(t_import *h)
 	int j;
 
 	i = 0;
-	h->d = h->d = h->map_h + h->map_w;
+	h->d = h->map_h + h->map_w;
 	while (i < h->map_h - ((h->piece_h - h->piece_s_u)
 		- (h->piece_h - h->piece_s_d)))
 	{
