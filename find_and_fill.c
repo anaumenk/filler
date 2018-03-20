@@ -109,4 +109,6 @@ void	fill_it(t_import *h)
 		i++;
 	}
 	ft_printf("%d %d\n", h->x, h->y);
+	if (h->x == 0 && h->y == 0)
+		h->exit = 1;
 }

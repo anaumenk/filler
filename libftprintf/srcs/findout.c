@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void	for_symbol(t_flags *help)
 {
@@ -70,7 +70,7 @@ int		findout(char c, va_list args, t_flags *help)
 		|| c == 'd' || c == 'D' || (c == 'c' && help->size != 'l') || c == 'p')
 		findout_cont(c, args, help);
 	if (help->color != '0')
-		ft_putstr("\033[37m");
+		ft_putstr("\033[0m");
 	ft_bzero(help->str, ft_strlen(help->str));
 	if (help->result == -1)
 	{

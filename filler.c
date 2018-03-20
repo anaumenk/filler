@@ -6,7 +6,7 @@
 /*   By: anaumenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 16:32:40 by anaumenk          #+#    #+#             */
-/*   Updated: 2018/03/02 16:32:41 by anaumenk         ###   ########.fr       */
+/*   Updated: 2018/03/16 18:05:47 by anaumenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int		main(void)
 	t_import	*h;
 
 	h = ft_memalloc(sizeof(t_import));
+	h->exit = 0;
 	get_next_line(0, &line);
 	h->p = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'O' : 'X';
 	h->lp = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'o' : 'x';
@@ -95,6 +96,8 @@ int		main(void)
 			map(&line, h);
 		if (ft_strstr(line, "Piece"))
 			piece(&line, h);
+		if (h->exit == 1)
+			break ;
 	}
 	free(h);
 	return (0);

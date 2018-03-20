@@ -13,9 +13,7 @@
 #ifndef FILLER_H
 # define FILLER_H
 
-# include "ft_printf/includes/libft.h"
-# include "ft_printf/includes/ft_printf.h"
-// #include "libft/libft.h"
+# include "libftprintf/includes/libft.h"
 
 typedef struct	s_import
 {
@@ -35,6 +33,7 @@ typedef struct	s_import
 	int		x;
 	int		y;
 	int		d;
+	int		exit;
 }				t_import;
 
 void			fill_it(t_import *h);

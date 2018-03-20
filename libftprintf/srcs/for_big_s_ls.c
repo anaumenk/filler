@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void	for_big_s_ls_cont_three(int i, wchar_t *x, t_flags *help)
 {

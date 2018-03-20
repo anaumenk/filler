@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 char		*for_u_big_u_continue(uint64_t x, char *str, int i, t_flags *help)
 {
