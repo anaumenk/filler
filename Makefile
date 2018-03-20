@@ -10,23 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-SWITCH =        \033[
-ST_NORM =  		$(SWITCH)0m
-COLOR_GREEN =   $(SWITCH)42m
-COLOR_RED =     $(SWITCH)41m
-COLOR_SGREEN = 	$(SWITCH)35m
-NAME = 			anaumenk.filler
-FLAGS = -Wall -Wextra -Werror
-C_FILES = filler.c find_and_fill.c
-O_FILES = filler.o find_and_fill.o
+SWITCH =		\033[
+ST_NORM =		$(SWITCH)0m
+COLOR_GREEN =	$(SWITCH)42m
+COLOR_RED =		$(SWITCH)41m
+COLOR_SGREEN =	$(SWITCH)35m
+NAME =			anaumenk.filler
+FLAGS =			-c -Wall -Wextra -Werror
+C_FILES =		filler.c find_and_fill.c
+O_FILES =		$(C_FILES:.c=.o)
+HEADER =		filler.h
 
 all: $(NAME)
 
-$(NAME):
-	@make -C libftprintf
-	@gcc -c $(FLAGS) $(C_FILES)
-	@gcc $(FLAGS) $(O_FILES) libftprintf/libftprintf.a -o $(NAME)
+$(NAME): $(O_FILES)
+	@make -C libftprintf/
+	@gcc -o $(NAME) $(O_FILES) libftprintf/libftprintf.a
 	@echo "$(STYLE_BOLD)$(COLOR_GREEN) anaumenk.filler has been compiled.$(ST_NORM)"
+
+%.o: %.c $(HEADER)
+	@gcc $(FLAGS) -o $@ $<
 
 clean:
 	@make clean -C libftprintf
