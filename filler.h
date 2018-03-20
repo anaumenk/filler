@@ -33,7 +33,6 @@ typedef struct	s_import
 	int		x;
 	int		y;
 	int		d;
-	int		exit;
 }				t_import;
 
 void			fill_it(t_import *h);

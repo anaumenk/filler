@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <stdio.h>
 
 void	check_piece(t_import *h, int x)
 {
@@ -86,7 +87,6 @@ int		main(void)
 	t_import	*h;
 
 	h = ft_memalloc(sizeof(t_import));
-	h->exit = 0;
 	get_next_line(0, &line);
 	h->p = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'O' : 'X';
 	h->lp = (ft_strstr(line, "anaumenk") && ft_strstr(line, "p1")) ? 'o' : 'x';
@@ -96,8 +96,6 @@ int		main(void)
 			map(&line, h);
 		if (ft_strstr(line, "Piece"))
 			piece(&line, h);
-		if (h->exit == 1)
-			break ;
 	}
 	free(h);
 	return (0);
